@@ -1,0 +1,8 @@
+lire(A);
+Si ( Cond1 ) Alors
+    I1;
+Sinon
+    Tantque ( Cond2 ) Faire
+        I2;
+    Ftantque
+Fsi
