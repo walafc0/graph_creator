@@ -1,16 +1,16 @@
 CC      = gcc
 CFLAGS  = -Wall -Werror -pedantic -std=c99
-LFLAGS  = #
-DEFINES = #
-OBJ     = graph.o compute.o main.o
-NAME    = main
+LDFLAGS = #
+OBJS    = graph.o compute.o main.o
+TRGT    = main
 
-all: $(OBJ)
-	$(CC) $(CFLAGS) $(DEFINES) $(LFLAGS) $(OBJ) -o $(NAME)
+all: $(TRGT)
+$(TRGT): $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
 
-%o: %c
-	$(CC) $(CFLAGS) $(DEFINES) $(LFLAGS) -c $^ -o $@
+%.o: %.c
+	$(CC) $(CFLAGS) -o $@ -c $^
 
 clean:
-	rm -f $(NAME)
-	rm -f *.o
+	rm -f $(TRGT)
+	rm -f $(OBJS)
